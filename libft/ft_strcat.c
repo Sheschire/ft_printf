@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/11 11:46:37 by tlemesle          #+#    #+#             */
-/*   Updated: 2020/12/18 16:05:26 by tlemesle         ###   ########.fr       */
+/*   Created: 2020/12/18 14:43:28 by tlemesle          #+#    #+#             */
+/*   Updated: 2020/12/18 15:14:20 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
-#include "./libft/libft.h"
-/*
-int main()
-{
-	char name[] = "Theo";
-	int age = 24;
-	//ft_printf("Je suis %10.3s et j'ai %-3d ans.", name, age);
-	printf("Je suis %-10.3s et j'ai %.3d ans.", name, age);
-}*/
+#include "libft.h"
 
-int main()
+char *ft_strcat(char *dest, char *src)
 {
-	char a[] = "hello";
-	char b[] = "world";
+	int i;
+	int j;
 
-	a = ft_strcat(a, b);
-	printf("%s\n", a);
+	i = 0;
+	while (dest[i] != '\0')
+		i++;
+	j = 0;
+	while (src[j] != '\0')
+	{
+		dest[i + j] = src[j];
+		j++;
+	}
+	dest[i + j] = '\0';
+	return (dest);
 }
