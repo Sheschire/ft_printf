@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_flags_status.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/11 11:46:37 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/06 16:45:22 by tlemesle         ###   ########.fr       */
+/*   Created: 2021/01/04 16:10:19 by tlemesle          #+#    #+#             */
+/*   Updated: 2021/01/07 10:48:50 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 #include "./libft/libft.h"
 
-int main()
+t_flags	ft_init_flags()
 {
-	char 	name[] = "T";
-	char	age = '2';
-	char	qi[] = "130";
+	t_flags flags;
+	
+	flags.width = 0;
+	flags.minus = 0;
+	flags.zero = 0;
+	flags.dot = -1;
+	flags.joker = 0;
+	return (flags);
+}
 
-	printf("Je suis %-.2s et j'ai %c ans et %.1s de QI.", name, age, qi);
+int		ft_is_flags_empty(t_flags f1, t_flags f2)
+{
+	if (f1.width != f2.width || f1.minus != f2.minus ||\
+	 f1.zero != f2.zero || f1.dot != f2.dot || f1.joker != f2.joker)
+	 	return (0);
+	return (1);
 }
