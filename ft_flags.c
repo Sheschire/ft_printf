@@ -6,12 +6,11 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 16:15:22 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/07 10:32:40 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/07 13:23:56 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "./libft/libft.h"
 
 t_flags	ft_dot_flag(t_flags flags, char *s)
 {
@@ -55,7 +54,7 @@ int	ft_update_index(char *s, char c, t_flags flags)
 	i = 0;
 	if (ft_isdigit(c))
 		i = ft_strlen(ft_itoa(flags.width)) - 1;
-	else
+	if (flags.dot != -1)
 	{
 		while (ft_isdigit(s[i] + 1))
 			i++;

@@ -6,12 +6,11 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 14:18:29 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/07 11:33:48 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/07 12:07:33 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "./libft/libft.h"
 
 int		ft_char_convert(char c, va_list ap, t_flags flags, t_flags empty_flags)
 {
@@ -23,11 +22,7 @@ int		ft_char_convert(char c, va_list ap, t_flags flags, t_flags empty_flags)
 	{
 		arg = (char *) va_arg(ap, char *);
 		if (arg == NULL)
-		{
-			arg = "(null)";
-			if (flags.dot != -1)
-				flags.dot = 0;
-		}
+			arg = "(null)";	
 		if (ft_is_flags_empty(flags, empty_flags))
 			return (count += ft_putn_and_count(arg, ft_strlen(arg)));
 		else
@@ -50,8 +45,8 @@ int	ft_convert(char c, t_flags flags, va_list ap)
 		count = ft_char_convert(c, ap, flags, empty_flags);
 	else
 		arg = 0;
-	if (ft_is_int_convertor(c))
-		arg = ft_int_convert(c, ap);
+//	if (ft_is_int_convertor(c))
+//		arg = ft_int_convert(c, ap);
 //	if (ft_is_hexa_convertor(c))
 //		arg = ft_hexa_convert(c, ap);
 //	if (ft_is_other_convertor(c))

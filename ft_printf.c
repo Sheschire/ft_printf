@@ -6,12 +6,11 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 10:45:15 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/07 11:33:00 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/07 13:26:10 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "./libft/libft.h"
 
 int	ft_fill_flags(char *s, va_list *ap)
 {
@@ -30,7 +29,7 @@ int	ft_fill_flags(char *s, va_list *ap)
 			flags = ft_dot_flag(flags, s + i);
 		if (ft_isdigit(s[i]) && s[i] != '0')
 			flags = ft_width_flag(flags, s + i);
-		if (s[i] == '.' || flags.width != 0)
+		if (flags.dot != -1 || flags.width != 0)
 			i += ft_update_index(s + i, s[i], flags);
 		if (s[i] == '-')
 			flags = ft_minus_flag(flags, s + i);
@@ -87,7 +86,6 @@ int	ft_printf(const char *input, ...)
 		return (0);
 	count = ft_build_print((char *)input, &ap);
 	va_end(ap);
-	printf("\ncount = %d\n\n", count);
 	return (count);
 }
 
@@ -105,14 +103,13 @@ int main()
 	printf("          | TEST WITH REAL PRINTF |\n");
 	printf("          |                       |\n");
 	printf("          \\-----------------------/\n\n");
-	printf_result = printf("Je suis %10.3s et j'ai %3c ans et %s de QI.", NULL, age, qi);
+	printf_result = printf("Je suis %10.3s et j'ai %-3.c ans et %s de QI.", NULL, age, qi);
 	printf("\ncount = %d\n\n", printf_result);
 	printf("          /---------------------\\\n");
 	printf("          |                     |\n");
 	printf("          | TEST WITH FT_PRINTF |\n");
 	printf("          |                     |\n");
 	printf("          \\---------------------/\n\n");
-	ft_printf("Je suis %10.3s et j'ai %3c ans et %s de QI.", NULL, age, qi);
-//	printf_result = printf("%.*i", -4, 34);
-	
+	printf_result = ft_printf("Je suis %10.3s et j'ai %-3.c ans et %s de QI.", NULL, age, qi);
+	printf("\ncount = %d\n\n", printf_result);
 }

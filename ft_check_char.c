@@ -6,12 +6,11 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 14:00:51 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/05 13:15:21 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/07 12:06:03 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "./libft/libft.h"
 
 int	ft_is_int_convertor(char c)
 {

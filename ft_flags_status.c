@@ -6,12 +6,11 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 16:10:19 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/07 10:48:50 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/07 12:06:03 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "./libft/libft.h"
 
 t_flags	ft_init_flags()
 {

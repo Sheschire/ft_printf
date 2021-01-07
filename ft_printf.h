@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 14:44:25 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/07 10:34:47 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/07 12:06:00 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef	struct		s_flags
 	char	convertor;
 }					t_flags;
 
+int		ft_printf(const char *input, ...);
 t_flags	ft_dot_flag(t_flags flags, char *s);
 t_flags	ft_minus_flag(t_flags flags, char *s);
 t_flags	ft_width_flag(t_flags flags, char *s);

@@ -6,12 +6,11 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 11:01:03 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/07 11:10:30 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/07 13:27:13 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "./libft/libft.h"
 
 int	ft_calculate_malloc(t_flags flags, char * arg, char c)
 {
@@ -59,11 +58,11 @@ char	*ft_check_width_minus(char *arg, char *res, t_flags flags, int len, int i)
 			while (i >= 0)
 				res[len-- - 1] = res[i--];
 			while (len > 0)
-				res[--len] = '.';
+				res[--len] = ' ';
 		}
 		else
 			while (i < len)
-				res[--len] = '.';
+				res[--len] = ' ';
 	}
 	return (res);
 }
@@ -102,14 +101,14 @@ char	*ft_check_width(t_flags flags, int arg, char *res)
 		{
 			res[flags.width - 1] = arg;
 			while (count < flags.width - 1)
-				res[count++] = '.';
+				res[count++] = ' ';
 			count++;
 		}
 		else
 		{
 			res[count] = arg;
 			while (count < flags.width - 1)
-				res[++count] = '.';
+				res[++count] = ' ';
 		}
 	}
 	return (res);
