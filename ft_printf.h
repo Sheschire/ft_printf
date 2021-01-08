@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 14:44:25 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/07 19:48:01 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/08 16:12:42 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,13 @@ int		ft_is_hexa_convertor(char c);
 int		ft_is_other_convertor(char c);
 int		ft_is_convertor(char c);
 int		ft_convert(char c, t_flags flags, va_list ap);
-int		ft_print_char(va_list ap, t_flags flags);
+int		ft_print_char(char c, va_list ap, t_flags flags);
 int		ft_print_int(char *arg, t_flags flags, char c);
-char	*ft_hexa_convert(char c, va_list ap);
-char	*ft_other_convert(char c, va_list ap);
 int		ft_print_str(char *arg, t_flags flags, char c);
 int		ft_putn_and_count(char *s, int n);
 int		ft_calculate_malloc(t_flags flags, char * arg, char c);
+int		ft_is_flag(char c);
 t_flags	ft_init_flags();
-int		ft_is_flags_empty(t_flags f1, t_flags f2);
+int		ft_is_flags_empty(t_flags f1);
 
 # endif

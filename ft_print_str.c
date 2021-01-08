@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 11:01:03 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/08 11:47:00 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/08 15:24:45 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,31 @@
 
 int	ft_calculate_malloc(t_flags flags, char * arg, char c)
 {
-	int	len;
+	int	len_str;
+	int	len_res;
 
-	if (flags.width == 0 && flags.dot != -1)
+	if (flags.dot != -1)
 	{
 		if (ft_is_char_convertor(c))
 		{
 			if ((size_t)flags.dot < ft_strlen(arg))
-				len = flags.dot;
+				len_str = flags.dot;
 			else
-				len = ft_strlen(arg) - 1;
+				len_str = ft_strlen(arg) - 1;
 		}
 		if (ft_is_int_convertor(c))
 		{
 			if ((size_t)flags.dot < ft_strlen(arg))
-				len = ft_strlen(arg);
+				len_str = ft_strlen(arg);
 			else
-				len = flags.dot;
+				len_str = flags.dot;
 		}
 	}
-	if (flags.width != 0 && ft_strlen(arg) < (size_t)flags.width)
-		len = flags.width;
-	if (flags.width != 0 && ft_strlen(arg) > (size_t)flags.width)
-		len = ft_strlen(arg) - 1;
-	return (len);
+	if (flags.width != 0 && len_str <= flags.width)
+		len_res = flags.width;
+	if (flags.width != 0 && len_str > flags.width)
+		len_res = len_str - 1;
+	return (len_res);
 }
 
 char	*ft_check_flags_char(char *arg, char *res, t_flags flags, int len, int i)
@@ -48,8 +49,6 @@ char	*ft_check_flags_char(char *arg, char *res, t_flags flags, int len, int i)
 	else
 		while (arg[++i])
 			res[i] = arg[i];
-	if (ft_strlen(arg) >= (size_t)flags.width)
-		return (res);
 	if (flags.width != 0)
 	{
 		if (flags.minus == 0)
@@ -114,13 +113,16 @@ char	*ft_check_width(t_flags flags, int arg, char *res)
 	return (res);
 }
 
-int		ft_print_char(va_list ap, t_flags flags)
+int		ft_print_char(char c, va_list ap, t_flags flags)
 {
 	int		arg;
 	int		count;
 	char	*res;
 
-	arg = (int) va_arg(ap, int);
+	if (c == '%')
+		arg = 37;
+	else
+		arg = (int) va_arg(ap, int);
 	res = (char *)malloc(sizeof(char *) * flags.width + 1);
 	if (!res)
 		return (0);

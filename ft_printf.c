@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 10:45:15 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/08 11:46:25 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/08 17:06:51 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ int	ft_build_print(char *s, va_list *ap)
 		{
 			count += ft_putn_and_count(tmp, (s - tmp));
 			count += ft_fill_flags(s + 1, ap);
-			while (!ft_is_convertor(*s) && *s)
+			s++;
+			while (ft_is_flag(*s) && *s)
 				s++;
 			if (ft_is_convertor(*s))
 				s++;
@@ -91,10 +92,11 @@ int	ft_printf(const char *input, ...)
 
 int main()
 {
-	char 	name[] = "Theo";
-	int		age = 24;
-	char	qi[] = "130";
+//	char 	name[] = "Theo";
+	int		age = -5;
+	char	qi = '3';
 //	char	age = '2';
+	int		matricule = -3265;
 	int		printf_result;
 
 	printf("\nLET'S PRINTF THIS OUT : <    Je suis %%---10.3s et j'ai %%.*c ans et %%s de QI.    >\n\n");
@@ -103,13 +105,13 @@ int main()
 	printf("          | TEST WITH REAL PRINTF |\n");
 	printf("          |                       |\n");
 	printf("          \\-----------------------/\n\n");
-	printf_result = printf("Je suis %4s et j'ai %05d ans et %s de QI.", name, age, qi);
+	printf_result = printf("Je suis %x et j'ai %u ans et %3c de QI.", matricule, age, qi);
 	printf("\ncount = %d\n\n", printf_result);
 	printf("          /---------------------\\\n");
 	printf("          |                     |\n");
 	printf("          | TEST WITH FT_PRINTF |\n");
 	printf("          |                     |\n");
 	printf("          \\---------------------/\n\n");
-	printf_result = ft_printf("Je suis %4s et j'ai %05d ans et %s de QI.", name, age, qi);
+	printf_result = ft_printf("Je suis %x et j'ai %u ans et %3c de QI.", matricule, age, qi);
 	printf("\ncount = %d\n\n", printf_result);
 }
