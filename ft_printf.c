@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 10:45:15 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/07 13:26:10 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/08 11:46:25 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,10 +91,10 @@ int	ft_printf(const char *input, ...)
 
 int main()
 {
-//	char 	name[] = "Theo";
-	char	age = '2';
+	char 	name[] = "Theo";
+	int		age = 24;
 	char	qi[] = "130";
-	
+//	char	age = '2';
 	int		printf_result;
 
 	printf("\nLET'S PRINTF THIS OUT : <    Je suis %%---10.3s et j'ai %%.*c ans et %%s de QI.    >\n\n");
@@ -103,13 +103,13 @@ int main()
 	printf("          | TEST WITH REAL PRINTF |\n");
 	printf("          |                       |\n");
 	printf("          \\-----------------------/\n\n");
-	printf_result = printf("Je suis %10.3s et j'ai %-3.c ans et %s de QI.", NULL, age, qi);
+	printf_result = printf("Je suis %4s et j'ai %05d ans et %s de QI.", name, age, qi);
 	printf("\ncount = %d\n\n", printf_result);
 	printf("          /---------------------\\\n");
 	printf("          |                     |\n");
 	printf("          | TEST WITH FT_PRINTF |\n");
 	printf("          |                     |\n");
 	printf("          \\---------------------/\n\n");
-	printf_result = ft_printf("Je suis %10.3s et j'ai %-3.c ans et %s de QI.", NULL, age, qi);
+	printf_result = ft_printf("Je suis %4s et j'ai %05d ans et %s de QI.", name, age, qi);
 	printf("\ncount = %d\n\n", printf_result);
 }
