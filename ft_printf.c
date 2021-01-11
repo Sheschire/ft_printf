@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 10:45:15 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/11 14:43:18 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/11 17:56:41 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ int	ft_build_print(char *s, va_list *ap)
 				s++;
 			if (ft_is_convertor(*s))
 				s++;
+			if (!*s)
+				return (count);
 		}
 	}
 	count += ft_putn_and_count(tmp, (s - tmp));
