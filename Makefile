@@ -8,6 +8,7 @@ SRCS	=	ft_printf.c\
 			ft_flags_update.c\
 			ft_print_int.c\
 			ft_print_str.c\
+			ft_check_char.c
 
 OBJS	=	$(SRCS:.c=.o)
 CC		=	clang
