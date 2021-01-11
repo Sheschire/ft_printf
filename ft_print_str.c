@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 11:01:03 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/11 18:17:42 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/11 18:40:53 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	ft_print_str(char *arg, t_flags flags, char c)
 	res[len] = '\0';
 	res = ft_check_flags_char(arg, res, flags, len, i);
 	len = ft_putn_and_count(res, ft_strlen(res));
-//	free(res);
+	free(res);
 	return (len);
 }
 

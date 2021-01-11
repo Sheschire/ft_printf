@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 10:45:15 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/11 18:26:14 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/11 18:59:36 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_fill_flags(char *s, va_list *ap)
 		if (ft_isdigit(s[i]) && s[i] != '0')
 			flags = ft_width_flag(flags, s + i);
 		if (flags.dot != -1 || flags.width != 0)
-			i += ft_update_index(s + i, s[i], flags);
+			i += ft_update_index(s + i, flags);
 		if (s[i] == '-')
 			flags = ft_minus_flag(flags, s + i);
 		if (s[i] == '*')

@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 14:18:29 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/11 14:12:56 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/11 18:44:20 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int		ft_char_convert(char c, va_list ap, t_flags flags)
 	{
 		arg = (char *) va_arg(ap, char *);
 		if (arg == NULL)
-			arg = "(null)";	
+			arg = "(null)";
 		if (ft_is_flags_empty(flags))
 			return (ft_putn_and_count(arg, ft_strlen(arg)));
 		else

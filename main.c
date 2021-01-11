@@ -16,13 +16,13 @@ int main()
 	printf("          | TEST WITH REAL PRINTF |\n");
 	printf("          |                       |\n");
 	printf("          \\-----------------------/\n\n");
-	printf_result = printf("%.s", "goes over");
+	printf_result = printf("%-10.3s", "hi im john");
 	printf("\ncount = %d\n\n", printf_result);
 	printf("          /---------------------\\\n");
 	printf("          |                     |\n");
 	printf("          | TEST WITH FT_PRINTF |\n");
 	printf("          |                     |\n");
 	printf("          \\---------------------/\n\n");
-	printf_result = ft_printf("%.s", "goes over");
+	printf_result = ft_printf("%-10.3s", "hi im john");
 	printf("\ncount = %d\n\n", printf_result);
 }

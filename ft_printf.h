@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 14:44:25 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/11 11:41:12 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/11 18:59:14 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_flags	ft_dot_flag(t_flags flags, char *s);
 t_flags	ft_minus_flag(t_flags flags, char *s);
 t_flags	ft_width_flag(t_flags flags, char *s);
 t_flags	ft_joker_flag(t_flags flags, va_list ap);
-int		ft_update_index(char *s, char c, t_flags flags);
+int		ft_update_index(char *s, t_flags flags);
 int		ft_is_int_convertor(char c);
 int		ft_is_char_convertor(char c);
 int		ft_is_hexa_convertor(char c);
