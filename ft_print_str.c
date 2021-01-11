@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 11:01:03 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/11 18:13:34 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/11 18:17:42 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ int	ft_print_str(char *arg, t_flags flags, char c)
 
 	i = -1;
 	len = ft_calculate_malloc(flags, arg, c);
-	printf("len = %d\n", len);
 	res = (char *)malloc(sizeof(char *) * len + 1);
 	if (!res)
 		return (0);

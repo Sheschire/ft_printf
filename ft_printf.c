@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 10:45:15 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/11 17:56:41 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/11 18:26:14 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	ft_fill_flags(char *s, va_list *ap)
 	{
 		if (s[i] == '0' && flags.minus == 0 && flags.dot == -1)
 			flags.zero = 1;
+		if (s[i] == '.' && !ft_isdigit(s[i + 1]))
+			return (0);
 		if (s[i] == '.')
 			flags = ft_dot_flag(flags, s + i);
 		if (ft_isdigit(s[i]) && s[i] != '0')
