@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 11:01:03 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/08 15:24:45 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/11 18:13:34 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,24 @@ int	ft_calculate_malloc(t_flags flags, char * arg, char c)
 	int	len_str;
 	int	len_res;
 
-	if (flags.dot != -1)
+	if (ft_is_char_convertor(c))
 	{
-		if (ft_is_char_convertor(c))
-		{
-			if ((size_t)flags.dot < ft_strlen(arg))
-				len_str = flags.dot;
-			else
-				len_str = ft_strlen(arg) - 1;
-		}
-		if (ft_is_int_convertor(c))
-		{
-			if ((size_t)flags.dot < ft_strlen(arg))
-				len_str = ft_strlen(arg);
-			else
-				len_str = flags.dot;
-		}
+		if ((size_t)flags.dot < ft_strlen(arg))
+			len_str = flags.dot;
+		else
+			len_str = ft_strlen(arg);
+	}
+	if (ft_is_int_convertor(c))
+	{
+		if ((size_t)flags.dot < ft_strlen(arg))
+			len_str = ft_strlen(arg);
+		else
+			len_str = flags.dot;
 	}
 	if (flags.width != 0 && len_str <= flags.width)
 		len_res = flags.width;
 	if (flags.width != 0 && len_str > flags.width)
-		len_res = len_str - 1;
+		len_res = len_str;
 	return (len_res);
 }
 
@@ -74,13 +71,14 @@ int	ft_print_str(char *arg, t_flags flags, char c)
 
 	i = -1;
 	len = ft_calculate_malloc(flags, arg, c);
+	printf("len = %d\n", len);
 	res = (char *)malloc(sizeof(char *) * len + 1);
 	if (!res)
 		return (0);
 	res[len] = '\0';
 	res = ft_check_flags_char(arg, res, flags, len, i);
 	len = ft_putn_and_count(res, ft_strlen(res));
-	free(res);
+//	free(res);
 	return (len);
 }
 

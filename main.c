@@ -1,9 +1,9 @@
 #include "ft_printf.h"
 
 int main()
-{
+{/*
 	char			c = 'w';
-/*	char			str[] = "Theo";
+	char			str[] = "Theo";
 	int				i = 24;
 	unsigned int	matricule = -125;
 	unsigned int 	n = 321;
@@ -16,13 +16,13 @@ int main()
 	printf("          | TEST WITH REAL PRINTF |\n");
 	printf("          |                       |\n");
 	printf("          \\-----------------------/\n\n");
-	printf_result = printf("%c%c%c%cded", c, '#', '$', '&');
+	printf_result = printf("%5s", "goes over");
 	printf("\ncount = %d\n\n", printf_result);
 	printf("          /---------------------\\\n");
 	printf("          |                     |\n");
 	printf("          | TEST WITH FT_PRINTF |\n");
 	printf("          |                     |\n");
 	printf("          \\---------------------/\n\n");
-	printf_result = ft_printf("%c%c%c%cded", c, '#', '$', '&');
+	printf_result = ft_printf("%5s", "goes over");
 	printf("\ncount = %d\n\n", printf_result);
 }
