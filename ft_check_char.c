@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 14:00:51 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/08 17:10:13 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/11 11:54:34 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,22 +28,16 @@ int	ft_is_hexa_convertor(char c)
 
 int	ft_is_char_convertor(char c)
 {
-	if (c == 'c' || c == 's')
+	if (c == 'c' || c == 's' || c == 's')
 		return (1);
 	return (0);
 }
 
-int	ft_is_other_convertor(char c)
-{
-	if (c == 'p' || c == '%')
-		return (1);
-	return (0);
-}
 
 int	ft_is_convertor(char c)
 {
 	if (ft_is_int_convertor(c) || ft_is_char_convertor(c) \
-	|| ft_is_hexa_convertor(c) || ft_is_other_convertor(c))
+	|| ft_is_hexa_convertor(c) || c == 'p')
 		return (1);
 	return (0);
 }

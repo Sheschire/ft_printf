@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 14:44:25 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/08 16:12:42 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/11 11:41:12 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int		ft_update_index(char *s, char c, t_flags flags);
 int		ft_is_int_convertor(char c);
 int		ft_is_char_convertor(char c);
 int		ft_is_hexa_convertor(char c);
-int		ft_is_other_convertor(char c);
 int		ft_is_convertor(char c);
 int		ft_convert(char c, t_flags flags, va_list ap);
 int		ft_print_char(char c, va_list ap, t_flags flags);

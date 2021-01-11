@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 13:19:34 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/08 17:05:03 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/11 13:58:17 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_itoa(int n);
 char				**ft_split(char const *s, char c);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-char				*ft_u_itoa(unsigned int n, char c, int_struct baseset);
+char				*ft_u_itoa(unsigned long long n, char c);
 size_t				ft_strlen(const char *str);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 size_t				ft_strlcpy(char *dst, const char *src, size_t size);
