@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 14:44:25 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/11 18:59:14 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/12 11:11:03 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef	struct		s_flags
 	int		dot;
 	int		joker;
 	char	convertor;
+	int		error;
 }					t_flags;
 
 int		ft_printf(const char *input, ...);
