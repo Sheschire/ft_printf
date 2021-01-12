@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 10:45:15 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/12 11:11:56 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/12 11:52:26 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@ int	ft_fill_flags(char *s, va_list *ap)
 	flags = ft_init_flags();
 	while (s[i] && !ft_is_convertor(s[i]))
 	{
+		printf("s[i] = %c\n", s[i]);
 		if (s[i] == '0' && flags.minus == 0 && flags.dot == -1)
 			flags.zero = 1;
-		if (s[i] == '.' && !ft_isdigit(s[i + 1]))
-			flags.error = 1;
 		if (s[i] == '.')
 			flags = ft_dot_flag(flags, s + i);
 		if (ft_isdigit(s[i]) && s[i] != '0')

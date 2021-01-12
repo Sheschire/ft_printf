@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 16:15:22 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/11 19:12:52 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/12 11:53:48 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 t_flags	ft_dot_flag(t_flags flags, char *s)
 {
-	if (*(s + 1) == '-')
-		flags.dot = -1;
+	if (*(s + 1) == '-' || !ft_isdigit(*(s + 1)))
+		flags.error = 1;
 	if (ft_isdigit(*(s + 1)))
 		flags.dot = ft_atoi(s + 1);
 	if (*(s + 1) == '*')
@@ -52,7 +52,7 @@ int	ft_update_index(char *s, t_flags flags)
 	int	i;
 
 	i = 0;
-	if (flags.width != 0)
+	if (flags.width != 0 && s[i] != '.')
 		i = ft_strlen(ft_itoa(flags.width)) - 1;
 	if (flags.dot != -1)
 		while (ft_isdigit(s[i + 1]))
