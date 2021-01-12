@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 11:34:23 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/12 12:49:32 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/12 12:54:31 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ char	*ft_check_flags_int(char *arg, char *res, t_flags flags, int len)
 
 	i = 0;
     j = 0;
-	if (flags.intneg == 1)
-		res[i++] = '-';
 	if (flags.dot != -1)
 		while (i < flags.dot - (int)ft_strlen(arg))
 			res[i++] = '0';
@@ -60,7 +58,7 @@ int		ft_print_int(char *arg, t_flags flags, char c)
 	int		len;
 
 	len = ft_calculate_malloc(flags, arg, c);
-	res = (char *)malloc(sizeof(char *) * len + flags.intneg + 1);
+	res = (char *)malloc(sizeof(char *) * len + 1);
 	if (!res)
 		return (0);
 	res[len] = '\0';
