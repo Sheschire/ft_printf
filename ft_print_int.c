@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 11:34:23 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/08 14:19:18 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/12 12:49:32 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,15 @@ char	*ft_check_width_int(char *res, t_flags flags, int len, int i)
 	return (res);
 }
 
-char	*ft_check_flags_int(char *arg, char *res, t_flags flags, int len, int i)
+char	*ft_check_flags_int(char *arg, char *res, t_flags flags, int len)
 {
+	int	i;
     int j;
 
+	i = 0;
     j = 0;
+	if (flags.intneg == 1)
+		res[i++] = '-';
 	if (flags.dot != -1)
 		while (i < flags.dot - (int)ft_strlen(arg))
 			res[i++] = '0';
@@ -54,15 +58,13 @@ int		ft_print_int(char *arg, t_flags flags, char c)
 {
     char	*res;
 	int		len;
-	int		i;
 
-	i = 0;
 	len = ft_calculate_malloc(flags, arg, c);
-	res = (char *)malloc(sizeof(char *) * len + 1);
+	res = (char *)malloc(sizeof(char *) * len + flags.intneg + 1);
 	if (!res)
 		return (0);
 	res[len] = '\0';
-	res = ft_check_flags_int(arg, res, flags, len, i);
+	res = ft_check_flags_int(arg, res, flags, len);
 	len = ft_putn_and_count(res, ft_strlen(res));
 	free(res);
 	return (len);
