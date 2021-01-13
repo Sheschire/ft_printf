@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 11:34:23 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/13 14:52:52 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/13 15:13:44 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,12 +107,6 @@ int		ft_print_int(char *arg, t_flags flags, char c)
 		len++;
 	if (flags.dot > (int)ft_strlen(arg) - 1 && flags.intneg == 1 && flags.width > flags.dot)
 		len += flags.width - flags.dot;
-	if (flags.intneg == 1 && flags.width > (int)ft_strlen(arg) && flags.dot == -1)
-	{
-		len += flags.width - (int)ft_strlen(arg);
-		while (flags.width-- > (int)ft_strlen(arg))
-			write(1, " ", 1);
-	}
 	free(res);
 	return (len);
 }
