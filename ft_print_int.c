@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 11:34:23 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/13 15:30:58 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/13 15:33:17 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ char	*ft_check_flags_int(char *arg, char *res, t_flags flags, int len)
 		res[i++] = arg[j++];
 	if (ft_strlen(arg) >= (size_t)flags.width && flags.dot <= (int)ft_strlen(arg) - 1)
 		return (res);
-	if (flags.width != 0 && flags.dot == -1)
+	if (flags.width != 0 && flags.dot == -1 && flags.intneg == 1)
 		ft_check_width_int(res, flags, len, i);
 	if (flags.intneg == 1)
 		return (ft_int_neg(res, arg, flags));
