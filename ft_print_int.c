@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 11:34:23 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/13 15:33:17 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/13 16:15:56 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_check_width_int(char *res, t_flags flags, int len, int i)
 char	*ft_int_neg(char *res, char *arg, t_flags flags)
 {
 	int	j;
-
+	
 	j = 1;
 	if (flags.zero == 1 && flags.width > (int)ft_strlen(arg))
 	{
@@ -45,27 +45,20 @@ char	*ft_int_neg(char *res, char *arg, t_flags flags)
 			j++;
 		res[j] = '0';
 	}
-	if (flags.dot > (int)ft_strlen(arg) - 1)
+	if (flags.width > flags.dot)
 	{
-		while (res[j] == '0')
-			j++;
-		res[j] = '0';
-		if (flags.width > flags.dot)
+		if (flags.minus == 0)
 		{
-			if (flags.minus == 0)
-			{
-				while (++flags.dot < flags.width)
-					write(1, " ", 1);
-				write(1, "-", 1);
-			}
-			else
-				write(1, "-", 1);
-		}
-		else
-		{
+			while (++flags.dot < flags.width)
+				write(1, " ", 1);
 			write(1, "-", 1);
 		}
-		
+		else
+			write(1, "-", 1);
+	}
+	else
+	{
+		write(1, "-", 1);
 	}
 	return (res);
 }
@@ -74,15 +67,23 @@ char	*ft_check_flags_int(char *arg, char *res, t_flags flags, int len)
 {
 	int	i;
     int j;
+	int	arglen;
 
 	i = 0;
     j = 0;
+	arglen = (int)ft_strlen(arg);
+	if (flags.intneg == 1)
+		arglen--;
 	if (flags.dot != -1)
-		while (i < flags.dot - (int)ft_strlen(arg))
+		while (i < flags.dot - arglen)
 			res[i++] = '0';
 	while (arg[j])
+	{
+		if (arg[j] == '-')
+			j++;
 		res[i++] = arg[j++];
-	if (ft_strlen(arg) >= (size_t)flags.width && flags.dot <= (int)ft_strlen(arg) - 1)
+	}
+	if (arglen >= flags.width && flags.dot <= arglen)
 		return (res);
 	if (flags.width != 0 && flags.dot == -1 && flags.intneg == 1)
 		ft_check_width_int(res, flags, len, i);
@@ -107,7 +108,7 @@ int		ft_print_int(char *arg, t_flags flags, char c)
 	len = ft_putn_and_count(res, ft_strlen(res));
 	if (flags.dot > (int)ft_strlen(arg) - 1 && flags.intneg == 1 && flags.width < flags.dot)
 		len++;
-	if (flags.dot > (int)ft_strlen(arg) - 1 && flags.intneg == 1 && flags.width > flags.dot)
+	if (flags.intneg == 1 && flags.width > flags.dot)
 		len += flags.width - flags.dot;
 	free(res);
 	return (len);
