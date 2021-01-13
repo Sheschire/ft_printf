@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 14:18:29 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/12 13:01:36 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/13 13:08:04 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,9 @@ int	ft_int_convert(char c, va_list ap, t_flags flags)
 		write(1, "", 1);
 		return (0);
 	}
-	if (tmp < 0)
-	{
-		tmp *= -1;
-		count += ft_putn_and_count("-", 1);
-	}
 	arg = ft_itoa(tmp);
+	if (tmp < 0 && !ft_is_flags_empty(flags))
+		flags.intneg = 1;
 	if (ft_is_flags_empty(flags))
 		count += ft_putn_and_count(arg, ft_strlen(arg));
 	else

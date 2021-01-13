@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 16:10:19 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/12 12:58:24 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/13 14:03:09 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ t_flags	ft_init_flags()
 	flags.dot = -1;
 	flags.joker = 0;
 	flags.error = 0;
+	flags.intneg = 0;
+	flags.count = 0;
 	return (flags);
 }
 
