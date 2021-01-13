@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 11:34:23 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/13 15:13:44 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/13 15:30:58 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	*ft_int_neg(char *res, char *arg, t_flags flags)
 		{
 			if (flags.minus == 0)
 			{
-				while (flags.dot++ < flags.width)
+				while (++flags.dot < flags.width)
 					write(1, " ", 1);
 				write(1, "-", 1);
 			}
@@ -87,7 +87,9 @@ char	*ft_check_flags_int(char *arg, char *res, t_flags flags, int len)
 	if (flags.width != 0 && flags.dot == -1)
 		ft_check_width_int(res, flags, len, i);
 	if (flags.intneg == 1)
-		ft_int_neg(res, arg, flags);
+		return (ft_int_neg(res, arg, flags));
+	if (flags.width != 0)
+		ft_check_width_int(res, flags, len, i);
 	return (res);
 }
 
