@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 14:18:29 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/14 14:06:21 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/14 15:02:30 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,10 @@ int		ft_hexa_convert(char c, va_list ap, t_flags flags)
 	unsigned int	u_nb;
 
 	u_nb = (unsigned int) va_arg(ap, unsigned int);
-	if (flags.dot == 0 && u_nb == 0)
-	{
-		write(1, "", 1);
-		return (0);
-	}
-	arg = ft_u_itoa(u_nb, c);
+	if ((flags.dot == 0 || flags.error == 1) && u_nb == 0)
+		arg = ft_strdup("");
+	else
+		arg = ft_u_itoa(u_nb, c);
 	if (ft_is_flags_empty(flags))
 		return (ft_putn_and_count(arg, ft_strlen(arg)));
 	else
@@ -53,7 +51,7 @@ int	ft_int_convert(va_list ap, t_flags flags)
 
 	tmp = (int) va_arg(ap, int);
 	count = 0;
-	if ((flags.dot == 0 || flags.error == 1) && count == 0)
+	if ((flags.dot == 0 || flags.error == 1) && tmp == 0)
 		arg = ft_strdup("");
 	else
 		arg = ft_itoa(tmp);
