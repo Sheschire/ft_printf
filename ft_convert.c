@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 14:18:29 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/14 13:02:27 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/14 14:06:21 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,10 @@ int	ft_int_convert(va_list ap, t_flags flags)
 
 	tmp = (int) va_arg(ap, int);
 	count = 0;
-	if (flags.dot == 0 && count == 0)
-	{
-		write(1, "", 1);
-		return (0);
-	}
-	arg = ft_itoa(tmp);
+	if ((flags.dot == 0 || flags.error == 1) && count == 0)
+		arg = ft_strdup("");
+	else
+		arg = ft_itoa(tmp);
 	if (tmp < 0 && !ft_is_flags_empty(flags))
 		flags.intneg = 1;
 	if (ft_is_flags_empty(flags))

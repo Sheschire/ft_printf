@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 10:45:15 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/12 13:14:45 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/14 13:57:19 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int	ft_fill_flags(char *s, va_list *ap)
 		i++;
 	}
 	flags.convertor = s[i];
-	flags.error = 0;
 	if (s[i] && ft_is_convertor(s[i]))
 		count = ft_convert(s[i], flags, *ap);
 	else
