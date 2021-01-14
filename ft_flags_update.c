@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 16:15:22 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/14 15:09:24 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/14 15:17:30 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ t_flags	ft_dot_flag(t_flags flags, char *s)
 	if (ft_isdigit(*(s + 1)))
 		flags.dot = ft_atoi(s + 1);
 	if (*(s + 1) == '*')
+	{
 		flags.dot = '*';
+		flags.error = 0;
+	}
 	flags.zero = 0;
 	return (flags);
 }
@@ -44,10 +47,7 @@ t_flags	ft_joker_flag(t_flags flags, va_list ap)
 	{
 		flags.dot = (int) va_arg(ap, int);
 		if (flags.dot < 0)
-		{
 			flags.dot = -1;
-			flags.error = 1;
-		}
 	}
 	else
 		flags.width = (int) va_arg(ap, int);
