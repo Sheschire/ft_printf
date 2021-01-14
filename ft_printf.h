@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 14:44:25 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/13 13:47:25 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/14 13:03:07 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ t_flags	ft_dot_flag(t_flags flags, char *s);
 t_flags	ft_minus_flag(t_flags flags, char *s);
 t_flags	ft_width_flag(t_flags flags, char *s);
 t_flags	ft_joker_flag(t_flags flags, va_list ap);
+int		ft_str_malloc(t_flags flags, char * arg);
+int		ft_int_malloc(char *arg, t_flags flags);
 int		ft_update_index(char *s, t_flags flags);
 int		ft_is_int_convertor(char c);
 int		ft_is_char_convertor(char c);
@@ -45,8 +47,8 @@ int		ft_is_hexa_convertor(char c);
 int		ft_is_convertor(char c);
 int		ft_convert(char c, t_flags flags, va_list ap);
 int		ft_print_char(char c, va_list ap, t_flags flags);
-int		ft_print_int(char *arg, t_flags flags, char c);
-int		ft_print_str(char *arg, t_flags flags, char c);
+int		ft_print_int(char *arg, t_flags flags);
+int		ft_print_str(char *arg, t_flags flags);
 int		ft_putn_and_count(char *s, int n);
 int		ft_calculate_malloc(t_flags flags, char * arg, char c);
 int		ft_is_flag(char c);
