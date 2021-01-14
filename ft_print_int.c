@@ -6,36 +6,24 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 11:34:23 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/14 14:04:29 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/14 14:53:10 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_put_sign2(char *res, t_flags flags, int arglen, int len)
+char	*ft_put_sign2(char *res, int len, t_flags flags, int arglen)
 {
-	if (flags.minus == 0)
+	while (res[len - 1] == ' ')
+		len--;
+	if (flags.width == arglen + 1)
+		len--;
+	while (len >= 0)
 	{
-		if (flags.width <= arglen && flags.zero == 0)
-			res = ft_strjoin("-", res);
-		if (flags.width > arglen && flags.zero == 0)
-		{
-			while (res[len] != ' ')
-				len--;
-			res[len] = '-';
-		}
+		res[len + 1] = res[len];
+		len--;
 	}
-	if (flags.minus == 1)
-	{
-		while (res[len - 1] == ' ')
-			len--;
-		while (len >= 0)
-		{
-			res[len + 1] = res[len];
-			len--;
-		}
-		res[len + 1] = '-';
-	}
+	res[len + 1] = '-';
 	return (res);
 }
 
@@ -48,7 +36,19 @@ char	*ft_put_sign(char *res, t_flags flags, int arglen, int len)
 		else
 			res[0] = '-';
 	}
-	res = ft_put_sign2(res, flags, arglen, len);
+	if (flags.minus == 0)
+	{
+		if (flags.width <= arglen && flags.zero == 0)
+			res = ft_strjoin("-", res);
+		if (flags.width > arglen && flags.zero == 0)
+		{
+			while (res[len] != ' ')
+				len--;
+			res[len] = '-';
+		}
+	}
+	else
+		res = ft_put_sign2(res, len, flags, arglen);
 	return (res);
 }
 
