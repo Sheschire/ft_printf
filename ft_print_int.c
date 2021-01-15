@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 11:34:23 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/14 14:53:10 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/15 13:34:36 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ char	*ft_put_sign(char *res, t_flags flags, int arglen, int len)
 			while (res[len] != ' ')
 				len--;
 			res[len] = '-';
+			if (flags.width == arglen + 1)
+				res = ft_strjoin("-", res);
 		}
 	}
 	else
