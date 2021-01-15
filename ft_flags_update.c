@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 16:15:22 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/15 11:34:38 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/15 11:45:14 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_flags	ft_dot_flag(t_flags flags, char *s)
 
 t_flags	ft_minus_flag(t_flags flags, char *s)
 {
-	if ((ft_isdigit(*(s + 1)) || *(s + 1) == '*') && flags.width == 0)
+	if (ft_isdigit(*(s + 1)) && flags.width == 0)
 		flags.minus = 1;
 	flags.zero = 0;
 	return (flags);
