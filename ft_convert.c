@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 14:18:29 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/14 15:16:50 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/15 12:40:10 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int		ft_char_convert(char c, va_list ap, t_flags flags)
 	if (c == 'c' || c == '%')
 	{
 		if (ft_is_flags_empty(flags))
-			return (ft_print_char(c, ap, flags) + 1);
+			return (ft_print_char(c, ap, flags));
 		return (ft_print_char(c, ap, flags));
 	}
 	return (0);

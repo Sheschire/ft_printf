@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 16:15:22 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/15 12:25:01 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/15 12:40:02 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_flags	ft_joker_flag(t_flags flags, va_list ap)
 			flags.width = flags.joker *= -1;
 		}
 		else
-			flags.width = (int) va_arg(ap, int);
+			flags.width = flags.joker;
 	}
 	return (flags);
 }
