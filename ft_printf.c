@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 10:45:15 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/15 09:40:11 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/15 15:47:29 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ int	ft_build_print(char *s, va_list *ap)
 			s++;
 		if (*s == '%')
 		{
-			count += ft_putn_and_count(tmp, (s - tmp));
+			if (tmp != s)
+				count += ft_putn_and_count(tmp, (s - tmp));
 			count += ft_fill_flags(s + 1, ap);
 			s++;
 			while (ft_is_flag(*s) && *s)
