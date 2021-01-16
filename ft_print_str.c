@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 11:01:03 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/16 11:15:20 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/16 11:16:11 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,6 @@ char	*ft_check_width(t_flags flags, int arg, char *res)
 		while (count < flags.width - 1)
 			res[count++] = 'a';
 		count++;
-		if (arg == 0)
-			write(1, &arg, 1);
 	}
 	else
 	{
@@ -102,8 +100,6 @@ int		ft_print_char(char c, va_list ap, t_flags flags)
 	res[len] = '\0';
 	res = ft_check_width(flags, arg, res);
 	count = ft_putn_and_count(res, ft_strlen(res));
-	if (arg == 0)
-		count++;
 	free(res);
 	return (count);
 }
