@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 11:01:03 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/16 11:49:25 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/16 12:43:23 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,12 @@ int		ft_put_width(t_flags flags, int arg)
 	if (flags.minus == 0)
 	{
 		while (i++ < flags.width - 1)
-			write(1, " ", 1);
+		{
+			if (flags.convertor == '%' && flags.zero == 1)
+				write(1, "0", 1);
+			else
+				write(1, " ", 1);
+		}
 		write(1, &arg, 1);
 		return (i);
 	}
