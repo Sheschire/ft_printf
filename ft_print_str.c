@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 11:01:03 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/16 11:14:27 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/16 11:15:20 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,6 @@ char	*ft_check_width(t_flags flags, int arg, char *res)
 		res[count] = arg;
 		while (count < flags.width - 1)
 			res[++count] = ' ';
-		if (arg == 0)
-		{
-			res[0] = ' ';
-			res[count] = arg;
-		}
 	}
 	return (res);
 }
