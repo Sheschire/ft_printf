@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 11:01:03 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/16 11:19:10 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/16 11:48:12 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	ft_print_str(char *arg, t_flags flags)
 	free(res);
 	return (len);
 }
-
+/*
 char	*ft_check_width(t_flags flags, int arg, char *res)
 {
 	int	count;
@@ -94,7 +94,6 @@ int		ft_print_char(char c, va_list ap, t_flags flags)
 		write(1, &arg, 1);
 		return (count = 1);
 	}
-	
 	res = (char *)malloc(sizeof(char *) * len + 1);
 	if (!res)
 		return (0);
@@ -103,4 +102,41 @@ int		ft_print_char(char c, va_list ap, t_flags flags)
 	count = ft_putn_and_count(res, ft_strlen(res));
 	free(res);
 	return (count);
+}*/
+
+int		ft_put_width(t_flags flags, int arg)
+{
+	int	i;
+
+	i = 0;
+	if (flags.minus == 0)
+	{
+		while (i++ < flags.width - 1)
+			write(1, " ", 1);
+		write(1, &arg, 1);
+		return (i);
+	}
+	else
+	{
+		write(1, &arg, 1);
+		while (i++ < flags.width - 1)
+			write(1, " ", 1);
+		return (i);
+	}
+}
+
+int		ft_print_char(char c, va_list ap, t_flags flags)
+{
+	int		arg;
+	int		i;
+
+	i = 0;
+	if (c == '%')
+		arg = 37;
+	else
+		arg = (int) va_arg(ap, int);
+	if (flags.width > 1)
+		return (ft_put_width(flags, arg));
+	write(1, &arg, 1);
+	return (1);
 }
