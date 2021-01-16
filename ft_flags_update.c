@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 16:15:22 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/15 13:43:53 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/16 12:39:37 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,9 @@ t_flags	ft_joker_flag(t_flags flags, va_list ap)
 	{
 		if (flags.joker < 0)
 		{
-			if (flags.zero == 0)
-			{
-				flags.minus = 1;
-				flags.width = flags.joker *= -1;
-			}
-			else
-				flags.minus = 0;
+			flags.minus = 1;
+			flags.width = flags.joker *= -1;
+			flags.zero = 0;
 		}
 		else
 			flags.width = flags.joker;
