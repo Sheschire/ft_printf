@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 11:34:23 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/19 17:44:39 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/19 17:57:56 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,10 +100,7 @@ int		ft_print_int(char *arg, t_flags flags)
 {
     char	*res;
 	int		len;
-	
-	printf("\nflags.zero = %d\n", flags.zero);
-	printf("flags.width = %d\n", flags.width);
-	printf("flags.dot = %d\n", flags.dot);
+
 	len = ft_int_malloc(arg, flags);
 	res = (char *)malloc(sizeof(char *) * len + 1);
 	if (!res)
