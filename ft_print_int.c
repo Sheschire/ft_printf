@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 11:34:23 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/19 17:57:56 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/19 18:15:42 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	*ft_put_sign(char *res, t_flags flags, int arglen, int len)
 	return (res);
 }
 
-char	*ft_check_width_int(char *res, t_flags flags, int len, int i)
+char	*ft_check_width_int(char *res, int arglen, t_flags flags, int len, int i)
 {
 	if (flags.minus == 0)
 	{
@@ -63,7 +63,7 @@ char	*ft_check_width_int(char *res, t_flags flags, int len, int i)
 			res[len-- - 1] = res[i--];
 		while (len > 0)
 		{
-			if (flags.zero == 1)
+			if (flags.zero == 1 && arglen != 0)
 				res[--len] = '0';
 			else
 				res[--len] = ' ';
@@ -90,7 +90,7 @@ char	*ft_check_flags_int(char *arg, char *res, t_flags flags, int len)
 	while (arg[j])
 		res[i++] = arg[j++];
 	if (flags.width != 0)
-		ft_check_width_int(res, flags, len, i);
+		ft_check_width_int(res, arglen, flags, len, i);
 	if (flags.intneg == 1)
 		res = ft_put_sign(res, flags, arglen, len);
 	return (res);
