@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 13:31:11 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/11 14:19:36 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/19 17:02:31 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static size_t		ft_nbrlen(unsigned long long n, int_struct baseset, char c)
 	size_t			len;
 
 	len = 0;
-	while (n > baseset.nbr_base)
+	while (n > baseset.nbr_base - 1)
 	{
 		n /= baseset.nbr_base;
 		len++;
@@ -32,7 +32,7 @@ static char			*ft_convert(char *str, unsigned long long n, size_t len, int_struc
 {
 	str[len] = '\0';
 	len--;
-	while (n > baseset.nbr_base)
+	while (n > baseset.nbr_base - 1)
 	{
 		str[len] = baseset.base[n % baseset.nbr_base];
 		n /= baseset.nbr_base;
@@ -45,6 +45,7 @@ static char			*ft_convert(char *str, unsigned long long n, size_t len, int_struc
 		str[len - 2] = '0';
 	}
 	return (str);
+	printf("str = %s\n", str);
 }
 
 static int_struct	ft_update_struct(char c)
