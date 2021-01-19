@@ -16,13 +16,13 @@ int main()
 	printf("          | TEST WITH REAL PRINTF |\n");
 	printf("          |                       |\n");
 	printf("          \\-----------------------/\n\n");
-	printf_result = printf("%% *.5i == |% *.5i|", 4, 42);
+	printf_result = printf("%0*.*i", 2, -2, 8);
 	printf("\ncount = %d\n\n", printf_result);
 	printf("          /---------------------\\\n");
 	printf("          |                     |\n");
 	printf("          | TEST WITH FT_PRINTF |\n");
 	printf("          |                     |\n");
 	printf("          \\---------------------/\n\n");
-	printf_result = ft_printf("%% *.5i == |% *.5i|", 4, 42);
+	printf_result = ft_printf("%0*.*i", 2, -2, 8);
 	printf("\ncount = %d\n\n", printf_result);
 }
