@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 13:00:24 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/20 15:26:59 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/20 15:30:07 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	ft_str_malloc(t_flags flags, char * arg)
 	int	len_str;
 	int	len_res;
 
+	len_res = 0;
 	if ((size_t)flags.dot < ft_strlen(arg) && flags.dot != -1)
 		len_str = flags.dot;
 	else
