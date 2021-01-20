@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 14:44:25 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/20 20:16:18 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/20 20:20:28 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef	struct		s_flags
 int		ft_printf(const char *input, ...);
 t_flags	ft_dot_flag(t_flags flags, char *s);
 t_flags	ft_minus_flag(t_flags flags, char *s);
-t_flags	ft_zero_flag(t_flags flags);
+t_flags	ft_width_flag(t_flags flags, char *s);
 t_flags	ft_joker_flag(t_flags flags, va_list ap);
 int		ft_str_malloc(t_flags flags, char * arg);
 int		ft_int_malloc(char *arg, t_flags flags);
