@@ -16,13 +16,13 @@ int main()
 	printf("          | TEST WITH REAL PRINTF |\n");
 	printf("          |                       |\n");
 	printf("          \\-----------------------/\n\n");
-	printf_result = printf("%*.*i", 19, 14, -42);
+	printf_result = printf("%.*s", -3, NULL);
 	printf("\ncount = %d\n\n", printf_result);
 	printf("          /---------------------\\\n");
 	printf("          |                     |\n");
 	printf("          | TEST WITH FT_PRINTF |\n");
 	printf("          |                     |\n");
 	printf("          \\---------------------/\n\n");
-	printf_result = ft_printf("%*.*i", 19, 14, -42);
+	printf_result = ft_printf("%.*s", -3, NULL);
 	printf("\ncount = %d\n\n", printf_result);
 }

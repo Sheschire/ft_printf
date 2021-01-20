@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 14:18:29 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/20 14:47:40 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/20 14:55:27 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ int	ft_int_convert(va_list ap, t_flags flags)
 int		ft_char_convert(char c, va_list ap, t_flags flags)
 {
 	char	*arg;
-	
+	int		count;
+
 	if (c == 's')
 	{
 		arg = (char *) va_arg(ap, char *);
@@ -82,19 +83,19 @@ int		ft_char_convert(char c, va_list ap, t_flags flags)
 		if (flags.error == 1)
 			arg = ft_strdup("");
 		if (ft_is_flags_empty(flags))
-			return (ft_putn_and_count(arg, ft_strlen(arg)));
+			count = ft_putn_and_count(arg, ft_strlen(arg));
 		else
-			return(ft_print_str(arg, flags));
+			count = ft_print_str(arg, flags);
+		if (arg == NULL || flags.error == 1)
+		free(arg);
 	}
 	if (c == 'c' || c == '%')
 	{
 		if (ft_is_flags_empty(flags))
-			return (ft_print_char(c, ap, flags));
-		return (ft_print_char(c, ap, flags));
+			count = ft_print_char(c, ap, flags);
+		count = ft_print_char(c, ap, flags);
 	}
-	if (arg == NULL || flags.error == 1)
-		free(arg);
-	return (0);
+	return (count);
 }
 
 int	ft_convert(char c, t_flags flags, va_list ap)
