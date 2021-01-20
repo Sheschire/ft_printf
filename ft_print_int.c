@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 11:34:23 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/20 13:53:49 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/20 13:57:36 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*ft_put_sign(char *res, t_flags flags, int arglen, int len)
 	{
 		if (flags.width <= arglen && flags.zero == 0)
 			res = ft_strjoin("-", res);
-		if (flags.dot >= flags.width && flags.dot > arglen && flags.width != 0)
+		else if (flags.dot >= flags.width && flags.dot > arglen && flags.width != 0)
 			return (res = ft_strjoin("-", res));
 		if (flags.width > arglen && flags.zero == 0)
 		{
