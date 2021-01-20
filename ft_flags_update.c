@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 16:15:22 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/20 15:23:59 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/20 16:05:24 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	ft_update_index(char *s, t_flags flags)
 	int	i;
 
 	i = 0;
-	if (flags.width != 0 && s[i] != '.')
+	if (flags.width != 0 && s[i] != '.' && s[i] != '*')
 		i = ft_strlen(ft_itoa(flags.width)) - 1;
 	if (flags.dot != -1)
 		while (ft_isdigit(s[i + 1]))
