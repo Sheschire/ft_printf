@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 11:34:23 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/20 19:12:56 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/20 19:15:49 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*ft_put_sign2(char *res, int len, t_flags flags, int arglen)
 
 char	*ft_put_sign(char *res, t_flags flags, int arglen, int len)
 {
-	if (flags.zero == 1 && flags.error == 0)
+	if (flags.zero == 1)
 	{
 		if (flags.width == 0 || flags.width <= arglen)
 			res = ft_strjoin("-", res);
@@ -55,7 +55,7 @@ char	*ft_put_sign(char *res, t_flags flags, int arglen, int len)
 			res = ft_strjoin("-", res);
 		else if (flags.dot >= flags.width && flags.dot > arglen && flags.width != 0)
 			return (res = ft_strjoin("-", res));
-		if (flags.width > arglen)
+		if (flags.width > arglen && flags.zero == 0)
 		{
 			while (res[len] != ' ')
 				len--;
@@ -78,7 +78,7 @@ char	*ft_check_width_int(char *res, int arglen, t_flags flags, int len, int i)
 			res[len-- - 1] = res[i--];
 		while (len > 0)
 		{
-			if (flags.zero == 1 && arglen != 0 && flags.error == 0)
+			if (flags.zero == 1 && arglen != 0)
 				res[--len] = '0';
 			else
 				res[--len] = ' ';
