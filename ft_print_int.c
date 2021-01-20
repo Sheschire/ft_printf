@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 11:34:23 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/20 18:19:46 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/20 18:21:55 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_put_sign2(char *res, int len, t_flags flags, int arglen)
 	printf("res[len - 1] = %d\n", res[len - 1]);*/
 	while (res[len - 1] == ' ')
 		len--;
-	if (flags.width == arglen + 1 || flags.width == flags.dot + 1)
+	if (flags.width == arglen + 1)
 		len--;
 	while (len >= 0)
 	{
