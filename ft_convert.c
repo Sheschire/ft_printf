@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 14:18:29 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/20 15:13:30 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/20 19:43:00 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ int		ft_pointer_convert(char c, va_list ap, t_flags flags)
 	void			*arg;
 
 	arg = (void *) va_arg(ap, void *);
-	arg = ft_u_itoa((unsigned long long)arg, c);
+	if (arg == NULL)
+		arg = ft_strdup("0x");
+	else
+		arg = ft_u_itoa((unsigned long long)arg, c);
 	if (ft_is_flags_empty(flags))
 		return (ft_putn_and_count(arg, ft_strlen(arg)));
 	else
