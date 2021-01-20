@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 14:18:29 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/20 15:11:35 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/20 15:13:30 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,7 @@ int	ft_int_convert(va_list ap, t_flags flags)
 int		ft_char_convert(char c, va_list ap, t_flags flags)
 {
 	char	*arg;
-	int		count;
-
+	
 	if (c == 's')
 	{
 		arg = (char *) va_arg(ap, char *);
@@ -83,17 +82,17 @@ int		ft_char_convert(char c, va_list ap, t_flags flags)
 		if (flags.error == 1)
 			arg = "";
 		if (ft_is_flags_empty(flags))
-			count = ft_putn_and_count(arg, ft_strlen(arg));
+			return (ft_putn_and_count(arg, ft_strlen(arg)));
 		else
-			count = ft_print_str(arg, flags);
+			return(ft_print_str(arg, flags));
 	}
 	if (c == 'c' || c == '%')
 	{
 		if (ft_is_flags_empty(flags))
-			count = ft_print_char(c, ap, flags);
-		count = ft_print_char(c, ap, flags);
+			return (ft_print_char(c, ap, flags));
+		return (ft_print_char(c, ap, flags));
 	}
-	return (count);
+	return (0);
 }
 
 int	ft_convert(char c, t_flags flags, va_list ap)
