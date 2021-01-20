@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 13:00:24 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/20 15:25:00 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/20 15:26:59 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	ft_str_malloc(t_flags flags, char * arg)
 	if (flags.width != 0 && len_str <= flags.width)
 		len_res = flags.width;
 	if (flags.width != 0 && len_str > flags.width)
+		len_res = len_str;
+	if (flags.width == 0)
 		len_res = len_str;
 	return (len_res);
 }
