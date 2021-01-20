@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 11:34:23 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/20 15:37:55 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/20 15:39:19 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ int		ft_print_int(char *arg, t_flags flags)
 	res = (char *)malloc(sizeof(char *) * len + 1);
 	if (!res)
 		return (0);
-	res[len + 1] = '\0';
+	res[len] = '\0';
 	res = ft_check_flags_int(arg, res, flags, len);
 	len = ft_putn_and_count(res, ft_strlen(res));
 	free(res);
