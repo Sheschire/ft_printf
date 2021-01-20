@@ -5,9 +5,9 @@ int main()
 	char			c = 'w';
 	char			str[] = "Theo";
 	int				i = 24;
-	unsigned int	matricule = -125;*/
-//	unsigned int 	n = 321;
-	void			*p = NULL;
+	unsigned int	matricule = -125;
+	unsigned int 	n = 321;
+	void			*p = NULL;*/
 	int				printf_result;
 
 	printf("\nLET'S PRINTF THIS OUT : <    Je suis %%---10.3s et j'ai %%.*c ans et %%s de QI.    >\n\n");
@@ -16,13 +16,13 @@ int main()
 	printf("          | TEST WITH REAL PRINTF |\n");
 	printf("          |                       |\n");
 	printf("          \\-----------------------/\n\n");
-	printf_result = printf("%-16p", p);
+	printf_result = printf("%04.3%");
 	printf("\ncount = %d\n\n", printf_result);
 	printf("          /---------------------\\\n");
 	printf("          |                     |\n");
 	printf("          | TEST WITH FT_PRINTF |\n");
 	printf("          |                     |\n");
 	printf("          \\---------------------/\n\n");
-	printf_result = ft_printf("%-16p", p);
+	printf_result = ft_printf("%04.3%");
 	printf("\ncount = %d\n\n", printf_result);
 }
