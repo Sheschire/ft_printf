@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 14:44:25 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/21 09:09:09 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/21 10:17:57 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ typedef	struct		s_flags
 	int		zero;
 	int		dot;
 	int		joker;
-	char	convertor;
 	int		error;
 	int		intneg;
 	int		count;

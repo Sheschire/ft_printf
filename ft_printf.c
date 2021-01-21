@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 10:45:15 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/21 09:41:47 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/21 10:19:49 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 int	ft_fill_flags(char *s, va_list *ap)
 {
 	t_flags flags;
-	int	i;
-	int count;
+	int		i;
+	int 	count;
 
-	i = 0;
+	i = -1;
 	flags = ft_init_flags();
-	while (s[i] && !ft_is_convertor(s[i]))
+	while (s[++i] && !ft_is_convertor(s[i]))
 	{
 		if (s[i] == '0')
 			flags.zero = 1;
@@ -34,15 +34,10 @@ int	ft_fill_flags(char *s, va_list *ap)
 			flags = ft_minus_flag(flags, s + i);
 		if (s[i] == '*')
 			flags = ft_joker_flag(flags, *ap);
-		i++;
 	}
-	flags.convertor = s[i];
-	if (flags.zero == 1)
-		flags = ft_zero_flag(flags, s + i);
+	flags = ft_zero_flag(flags, s + i);
 	if (s[i] && ft_is_convertor(s[i]))
 		count = ft_convert(s[i], flags, *ap);
-	else
-		count = -1;
 	return (count);
 }
 
