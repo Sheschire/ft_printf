@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 10:45:15 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/20 20:20:20 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/21 09:10:17 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ int	ft_fill_flags(char *s, va_list *ap)
 	flags = ft_init_flags();
 	while (s[i] && !ft_is_convertor(s[i]))
 	{
-		if (s[i] == '0' && flags.minus == 0 && flags.dot == -1)
+		if (s[i] == '0') //&& flags.minus == 0 && flags.dot == -1)
 			flags.zero = 1;
 		if (s[i] == '.')
 			flags = ft_dot_flag(flags, s + i);
 		if (ft_isdigit(s[i]) && s[i] != '0')
-			flags = ft_width_flag(flags, s + i);
+			flags.width = ft_atoi(&s[i]);
 		if (flags.dot != -1 || flags.width != 0)
 			i += ft_update_index(s + i, flags);
 		if (s[i] == '-')
@@ -37,6 +37,8 @@ int	ft_fill_flags(char *s, va_list *ap)
 		i++;
 	}
 	flags.convertor = s[i];
+	if (flags.zero == 1)
+		flags = ft_zero_flag(flags, s + i);
 	if (s[i] && ft_is_convertor(s[i]))
 		count = ft_convert(s[i], flags, *ap);
 	else
