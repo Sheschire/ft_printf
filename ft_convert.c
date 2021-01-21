@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 14:18:29 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/20 20:00:00 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/21 09:40:31 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,5 +108,5 @@ int	ft_convert(char c, t_flags flags, va_list ap)
 		return(ft_hexa_convert(c, ap ,flags));
 	if (c == 'p')
 		return (ft_pointer_convert(c, ap, flags));
-	return (0);
+	return (-1);
 }

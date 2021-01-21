@@ -1,5 +1,5 @@
 #include "ft_printf.h"
-
+#include <limits.h>
 int main()
 {/*
 	char			c = 'w';
@@ -16,13 +16,13 @@ int main()
 	printf("          | TEST WITH REAL PRINTF |\n");
 	printf("          |                       |\n");
 	printf("          \\-----------------------/\n\n");
-	printf_result = printf("%-*.*d", 3, 4, -12);
+	printf_result = printf("%*.*s",INT_MAX,INT_MAX,"abc");
 	printf("\ncount = %d\n\n", printf_result);
 	printf("          /---------------------\\\n");
 	printf("          |                     |\n");
 	printf("          | TEST WITH FT_PRINTF |\n");
 	printf("          |                     |\n");
 	printf("          \\---------------------/\n\n");
-	printf_result = ft_printf("%-*.*d", 3, 4, -12);
+	printf_result = ft_printf("%*.*s",INT_MAX,INT_MAX,"abc");
 	printf("\ncount = %d\n\n", printf_result);
 }

@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 10:45:15 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/21 09:18:58 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/21 09:41:47 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_fill_flags(char *s, va_list *ap)
 	flags = ft_init_flags();
 	while (s[i] && !ft_is_convertor(s[i]))
 	{
-		if (s[i] == '0') //&& flags.minus == 0 && flags.dot == -1)
+		if (s[i] == '0')
 			flags.zero = 1;
 		if (s[i] == '.')
 			flags = ft_dot_flag(flags, s + i);
@@ -42,7 +42,7 @@ int	ft_fill_flags(char *s, va_list *ap)
 	if (s[i] && ft_is_convertor(s[i]))
 		count = ft_convert(s[i], flags, *ap);
 	else
-		count = 0;
+		count = -1;
 	return (count);
 }
 

@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 11:34:23 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/21 09:32:17 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/21 09:44:22 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 
 char	*ft_put_sign2(char *res, int len, t_flags flags, int arglen)
 {
-/*	printf("arglen = %d\n", arglen);
-	printf("len = %d\n", len);
-	printf("res = %s\n", res);
-	printf("res len = %d\n", (int)ft_strlen(res));
-	printf("res[len] = %d\n", res[len]);
-	printf("res[len - 1] = %c\n", res[len - 1]);*/
 	if (flags.width == (int)ft_strlen(res) && flags.width == flags.dot)
 	{
 		res = ft_strjoin("-", res);
@@ -124,7 +118,7 @@ int		ft_print_int(char *arg, t_flags flags)
 	len = ft_int_malloc(arg, flags);
 	res = (char *)malloc(sizeof(char *) * len);
 	if (!res)
-		return (0);
+		return (-1);
 	res[len] = '\0';
 	res = ft_check_flags_int(arg, res, flags, len);
 	len = ft_putn_and_count(res, ft_strlen(res));
