@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 10:45:15 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/21 09:10:17 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/21 09:18:58 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	ft_printf(const char *input, ...)
 	int		count;
 
 	va_start(ap, input);
-	if (!input)
+	if (*input == '\0')
 		return (0);
 	count = ft_build_print((char *)input, &ap);
 	va_end(ap);
