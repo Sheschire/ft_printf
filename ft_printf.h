@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 14:44:25 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/21 11:22:29 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/21 11:23:20 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@
 # include <stdarg.h>
 # include "./libft/libft.h"
 
-typedef	struct		s_flags
+typedef	struct	s_flags
 {
-	int				width;
-	int				minus;
-	int				zero;
-	int				dot;
-	int				joker;
-	int				error;
-	int				intneg;
-	int				count;
-	int				arglen;
-}					t_flags;
+	int			width;
+	int			minus;
+	int			zero;
+	int			dot;
+	int			joker;
+	int			error;
+	int			intneg;
+	int			count;
+	int			arglen;
+}				t_flags;
 
 t_flags	ft_dot_flag(t_flags flags, char *s);
 t_flags	ft_minus_flag(t_flags flags, char *s);
