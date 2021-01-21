@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 11:34:23 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/21 10:40:05 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/21 10:52:26 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ char	*ft_check_flags_int(char *arg, char *res, t_flags flags, int len)
 
 int		ft_print_int(char *arg, t_flags flags)
 {
-    char	*res;
+	char	*res;
 	int		len;
 
 	len = ft_int_malloc(arg, flags);

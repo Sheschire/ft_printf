@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 13:19:34 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/11 13:58:17 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/21 11:02:47 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,12 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
-typedef struct		i_struct
+typedef struct		s_int
 {
 	unsigned int	nbr_base;
 	char			*base;
-}					int_struct;
+	char			c;
+}					t_int;
 
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *dest, const void *src, size_t n);

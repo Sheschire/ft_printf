@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 14:18:29 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/21 10:28:43 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/21 10:50:30 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,14 +98,14 @@ int		ft_char_convert(char c, va_list ap, t_flags flags)
 	return (0);
 }
 
-int	ft_convert(char c, t_flags flags, va_list ap)
+int		ft_convert(char c, t_flags flags, va_list ap)
 {
 	if (ft_is_char_convertor(c))
 		return (ft_char_convert(c, ap, flags));
 	if (ft_is_int_convertor(c))
 		return (ft_int_convert(ap, flags));
 	if (ft_is_hexa_convertor(c))
-		return (ft_hexa_convert(c, ap , flags));
+		return (ft_hexa_convert(c, ap, flags));
 	if (c == 'p')
 		return (ft_pointer_convert(c, ap, flags));
 	return (-1);
