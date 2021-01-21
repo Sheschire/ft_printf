@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 11:01:03 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/21 09:43:53 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/21 10:21:54 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	ft_print_str(char *arg, t_flags flags)
 	return (len);
 }
 
-int		ft_put_width(t_flags flags, int arg)
+int		ft_put_width(char c, t_flags flags, int arg)
 {
 	int	i;
 
@@ -64,7 +64,7 @@ int		ft_put_width(t_flags flags, int arg)
 	{
 		while (i++ < flags.width - 1)
 		{
-			if (flags.convertor == '%' && flags.zero == 1)
+			if (c == '%' && flags.zero == 1)
 				write(1, "0", 1);
 			else
 				write(1, " ", 1);
@@ -92,7 +92,7 @@ int		ft_print_char(char c, va_list ap, t_flags flags)
 	else
 		arg = (int) va_arg(ap, int);
 	if (flags.width > 1)
-		return (ft_put_width(flags, arg));
+		return (ft_put_width(c, flags, arg));
 	write(1, &arg, 1);
 	return (1);
 }
