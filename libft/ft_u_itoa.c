@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 13:31:11 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/21 11:03:34 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/21 11:06:18 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ t_int	ft_update_struct(char c)
 	return (baseset);
 }
 
-char				*ft_u_itoa(unsigned long long n, char c)
+char	*ft_u_itoa(unsigned long long n, char c)
 {
 	char	*str;
 	size_t	len;

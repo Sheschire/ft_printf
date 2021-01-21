@@ -6,11 +6,11 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 14:44:25 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/21 10:49:30 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/21 11:16:52 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef FT_PRINTF_H
+#ifndef FT_PRINTF_H
 
 # define FT_PRINTF_H
 
@@ -55,4 +55,4 @@ int		ft_is_flag(char c);
 t_flags	ft_init_flags(void);
 int		ft_is_flags_empty(t_flags f1);
 
-# endif
+#endif

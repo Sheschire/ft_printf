@@ -6,13 +6,13 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 14:18:29 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/21 10:50:30 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/21 11:07:57 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_pointer_convert(char c, va_list ap, t_flags flags)
+int	ft_pointer_convert(char c, va_list ap, t_flags flags)
 {
 	void			*arg;
 
@@ -28,7 +28,7 @@ int		ft_pointer_convert(char c, va_list ap, t_flags flags)
 	return (0);
 }
 
-int		ft_hexa_convert(char c, va_list ap, t_flags flags)
+int	ft_hexa_convert(char c, va_list ap, t_flags flags)
 {
 	char			*arg;
 	unsigned int	u_nb;
@@ -73,7 +73,7 @@ int	ft_int_convert(va_list ap, t_flags flags)
 	return (count);
 }
 
-int		ft_char_convert(char c, va_list ap, t_flags flags)
+int	ft_char_convert(char c, va_list ap, t_flags flags)
 {
 	char	*arg;
 
@@ -98,7 +98,7 @@ int		ft_char_convert(char c, va_list ap, t_flags flags)
 	return (0);
 }
 
-int		ft_convert(char c, t_flags flags, va_list ap)
+int	ft_convert(char c, t_flags flags, va_list ap)
 {
 	if (ft_is_char_convertor(c))
 		return (ft_char_convert(c, ap, flags));
