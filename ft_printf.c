@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 10:45:15 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/21 10:24:44 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/21 11:40:48 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	ft_fill_flags(char *s, va_list *ap)
 {
 	t_flags flags;
 	int		i;
-	int		count;
 
 	i = -1;
 	flags = ft_init_flags();
@@ -37,8 +36,8 @@ int	ft_fill_flags(char *s, va_list *ap)
 	}
 	flags = ft_zero_flag(flags, s + i);
 	if (s[i] && ft_is_convertor(s[i]))
-		count = ft_convert(s[i], flags, *ap);
-	return (count);
+		return (ft_convert(s[i], flags, *ap));
+	return (0);
 }
 
 int	ft_putn_and_count(char *s, int n)
