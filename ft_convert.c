@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 14:18:29 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/21 09:40:31 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/21 10:28:43 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		ft_pointer_convert(char c, va_list ap, t_flags flags)
 {
 	void			*arg;
 
-	arg = (void *) va_arg(ap, void *);
+	arg = (void *)va_arg(ap, void *);
 	if (arg == NULL && flags.error == 1)
 		arg = ft_strdup("0x");
 	else
@@ -33,7 +33,7 @@ int		ft_hexa_convert(char c, va_list ap, t_flags flags)
 	char			*arg;
 	unsigned int	u_nb;
 
-	u_nb = (unsigned int) va_arg(ap, unsigned int);
+	u_nb = (unsigned int)va_arg(ap, unsigned int);
 	if ((flags.dot == 0 || flags.error == 1) && u_nb == 0)
 		arg = ft_strdup("");
 	else
@@ -52,7 +52,7 @@ int	ft_int_convert(va_list ap, t_flags flags)
 	int		count;
 	int		tmp;
 
-	tmp = (int) va_arg(ap, int);
+	tmp = (int)va_arg(ap, int);
 	count = 0;
 	if ((flags.dot == 0 || flags.error == 1) && tmp == 0)
 		arg = ft_strdup("");
@@ -76,10 +76,10 @@ int	ft_int_convert(va_list ap, t_flags flags)
 int		ft_char_convert(char c, va_list ap, t_flags flags)
 {
 	char	*arg;
-	
+
 	if (c == 's')
 	{
-		arg = (char *) va_arg(ap, char *);
+		arg = (char *)va_arg(ap, char *);
 		if (arg == NULL)
 			arg = "(null)";
 		if (flags.error == 1)
@@ -87,7 +87,7 @@ int		ft_char_convert(char c, va_list ap, t_flags flags)
 		if (ft_is_flags_empty(flags))
 			return (ft_putn_and_count(arg, ft_strlen(arg)));
 		else
-			return(ft_print_str(arg, flags));
+			return (ft_print_str(arg, flags));
 	}
 	if (c == 'c' || c == '%')
 	{
@@ -103,9 +103,9 @@ int	ft_convert(char c, t_flags flags, va_list ap)
 	if (ft_is_char_convertor(c))
 		return (ft_char_convert(c, ap, flags));
 	if (ft_is_int_convertor(c))
-		return(ft_int_convert(ap, flags));
+		return (ft_int_convert(ap, flags));
 	if (ft_is_hexa_convertor(c))
-		return(ft_hexa_convert(c, ap ,flags));
+		return (ft_hexa_convert(c, ap , flags));
 	if (c == 'p')
 		return (ft_pointer_convert(c, ap, flags));
 	return (-1);

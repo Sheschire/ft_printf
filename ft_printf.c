@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 10:45:15 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/21 10:21:54 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/21 10:24:44 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_fill_flags(char *s, va_list *ap)
 {
 	t_flags flags;
 	int		i;
-	int 	count;
+	int		count;
 
 	i = -1;
 	flags = ft_init_flags();
