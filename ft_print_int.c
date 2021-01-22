@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 11:34:23 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/21 11:46:51 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/21 17:11:07 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ char	*ft_put_sign2(char *res, int len, t_flags flags, int arglen)
 {
 	if (flags.width == (int)ft_strlen(res) && flags.width == flags.dot)
 	{
-		res = ft_strjoin("-", res);
+		res = ft_strjoin("-", res, 2);
 		return (res);
 	}
 	if (flags.dot > flags.width && flags.dot > arglen)
 	{
-		res = ft_strjoin("-", res);
+		res = ft_strjoin("-", res, 2);
 		return (res);
 	}
 	while (res[len - 1] == ' ')
@@ -44,23 +44,23 @@ char	*ft_put_sign(char *res, t_flags flags, int arglen, int len)
 	if (flags.zero == 1 && flags.error == 0)
 	{
 		if (flags.width == 0 || flags.width <= arglen)
-			res = ft_strjoin("-", res);
+			res = ft_strjoin("-", res, 2);
 		else
 			res[0] = '-';
 	}
 	if (flags.minus == 0)
 	{
 		if (flags.width <= arglen && (flags.zero == 0 || flags.error == 1))
-			return (res = ft_strjoin("-", res));
+			return (res = ft_strjoin("-", res, 2));
 		if (flags.dot >= flags.width && flags.dot > arglen && flags.width != 0)
-			return (res = ft_strjoin("-", res));
+			return (res = ft_strjoin("-", res, 2));
 		if (flags.width > arglen && (flags.zero == 0 || flags.error == 1))
 		{
 			while (res[len] != ' ')
 				len--;
 			res[len] = '-';
 			if (flags.width == arglen + 1 && flags.dot > arglen)
-				res = ft_strjoin("-", res);
+				res = ft_strjoin("-", res, 2);
 		}
 	}
 	else
@@ -115,12 +115,13 @@ int		ft_print_int(char *arg, t_flags flags)
 	int		len;
 
 	len = ft_int_malloc(arg, flags);
-	res = (char *)malloc(sizeof(char *) * len);
+	res = (char *)malloc(sizeof(char) * len + 1);
 	if (!res)
 		return (-1);
 	res[len] = '\0';
 	res = ft_check_flags_int(arg, res, flags, len);
 	len = ft_putn_and_count(res, ft_strlen(res));
 	free(res);
+	res = NULL;
 	return (len);
 }

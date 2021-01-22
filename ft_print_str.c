@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 11:01:03 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/21 10:43:21 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/21 16:59:45 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int		ft_print_str(char *arg, t_flags flags)
 	int		len;
 
 	len = ft_str_malloc(flags, arg);
-	res = (char *)malloc(sizeof(char *) * len + 1);
+	res = (char *)malloc(sizeof(char) * len + 1);
 	if (!res)
 		return (-1);
 	res[len] = '\0';

@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 16:15:22 by tlemesle          #+#    #+#             */
-/*   Updated: 2021/01/21 10:31:23 by tlemesle         ###   ########.fr       */
+/*   Updated: 2021/01/21 15:31:51 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,17 @@ t_flags	ft_joker_flag(t_flags flags, va_list ap)
 
 int		ft_update_index(char *s, t_flags flags)
 {
-	int	i;
+	int		i;
+	char	*itoa_width;
 
 	i = 0;
+	itoa_width = NULL;
 	if (flags.width != 0 && s[i] != '.' && s[i] != '*')
-		i = ft_strlen(ft_itoa(flags.width)) - 1;
+	{
+		itoa_width = ft_itoa(flags.width);
+		i = ft_strlen(itoa_width) - 1;
+		free(itoa_width);
+	}
 	if (flags.dot != -1)
 		while (ft_isdigit(s[i + 1]))
 			i++;
